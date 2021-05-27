@@ -1,0 +1,52 @@
+{% extends "admin/layout.njk" %}
+
+{% block head %}
+  <title>Usuários - Foodfy</title>
+{% endblock %}
+
+{% block content %}
+
+  <section class="admin">
+
+    <div class="users-header">
+      <p class="index-header-title">Usuários</p>
+      <div class="actions">
+        <a href="/admin/users/create">Novo</a>
+      </div>
+    </div>
+
+    <div class="cards-users">
+
+      {% for user in users %}
+        <div class="card-user" id="{{user.id}}">
+          <div class="card__content">
+            <p class="title">{{user.name}}</p>
+            <p class="email">{{user.email}}</p>
+          </div>
+          <div class="card__actions">
+            <a class="edit" href="/admin/users/edit/{{user.id}}">
+              Editar
+            </a>
+            <form id="form-delete" method="POST" action="/admin/users?_method=DELETE">
+              <input type="hidden" name="id" value="{{user.id}}">
+              <button class="remove" type="submit">Remover</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </section>
+
+  <script>
+    const formDelete = document.querySelectorAll("#form-delete")
+    formDelete.forEach(form => form.addEventListener("submit", function (event) {
+      const confirmation = confirm("Deseja deletar?")
+      if (!confirmation) {
+        event.preventDefault()
+      }
+    }))
+  </script>
+
+{% endblock %}

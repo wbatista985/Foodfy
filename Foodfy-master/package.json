@@ -1,0 +1,40 @@
+{
+  "name": "foodfy",
+  "version": "1.0.0",
+  "description": "foodfy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "npm-run-all -p nodemon browsersync",
+    "nodemon": "nodemon src/server.js",
+    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://github.com/wbatista985/foodfy#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^6.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "fs": "0.0.1-security",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.6",
+    "nunjucks": "^3.2.1",
+    "pg": "^8.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "eslint": "^7.7.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.6",
+    "yarn-run-all": "^3.1.1"
+  }
+}

@@ -1,0 +1,25 @@
+{% extends "layout.njk" %}
+
+{% block header %}
+
+  <header class="admin">
+    <div class="admin-header">
+      <a href="/admin"><img src="/assets/logo_bw.png" alt="Foodfy"/></a>
+      <div class="links-admin">
+        <a class="link" href="/admin/recipes">Receitas</a>
+        <a class="link" href="/admin/chefs">Chefs</a>
+        <a class="link" href="/admin/users">Usuários</a>
+      </div>
+      <div class="user-options">
+        <a class="my-account" href="/admin/profile">
+          <i class="material-icons">account_box</i>
+          Minha Conta
+        </a>
+        <form id="logout" method="POST" action="/admin/users/logout">
+          <a class="link active" onclick="document.getElementById('logout').submit();">Sair</a>
+        </form>
+      </div>
+    </div>
+  </header>
+
+{% endblock %}

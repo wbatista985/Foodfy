@@ -1,0 +1,46 @@
+{% extends "web/layout.njk" %}
+{% block content %}
+
+  <div class="wrapper">
+    <div class="content">
+      <h1>As melhores receitas</h1>
+      <h2>
+        Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
+      </h2>
+    </div>
+    <img src="/assets/chef.png" alt="Foodfy"/>
+  </div>
+
+  <section class="mais-acessadas">
+    <p class="cards__section-title">Mais Acessadas</p>
+
+    <div class="cards">
+      {% for item in items %}
+        <div class="card" id="{{item.id}}">
+          <div class="card__image-container">
+            <img src="{{item.src}}" alt="{{item.title}}"/>
+          </div>
+          <div class="card__content">
+            <p class="card__title">{{item.title}}</p>
+            <p class="card__subtitle">por
+              {{item.chef_name}}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </section>
+
+  <script>
+    const modalOverlay = document.querySelector(".modal-overlay");
+    const cards = document.querySelectorAll(".card");
+
+    for (let card of cards) {
+      card.addEventListener("click", function () {
+        const id = card.getAttribute("id");
+        window.location.href = `/recipes/${id}`;
+      });
+    }
+  </script>
+
+{% endblock %}

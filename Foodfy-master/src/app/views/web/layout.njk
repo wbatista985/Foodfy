@@ -1,0 +1,26 @@
+{% extends "layout.njk" %}
+
+{% block header %}
+  <header>
+    <div class="links">
+      <a href="/"><img src="/assets/logo.png" alt="Foodfy"/></a>
+      <a class="link" href="/about">Sobre</a>
+      <a class="link" href="/recipes">Receitas</a>
+      <a class="link" href="/chefs">Chefs</a>
+      <a href="/admin/users/login">
+        <i class="material-icons">account_box</i>
+      </a>
+    </div>
+
+    <form action="/recipes/search" method="GET">
+      <input type="text" name="filter" placeholder="Buscar..." value="{{ filter }}"/>
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
+{% endblock %}
+
+{% block footer %}
+  <footer>
+    <p class="footer__title">Todos direitos reservados, receitas Foodfy.</p>
+  </footer>
+{% endblock %}
